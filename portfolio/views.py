@@ -32,7 +32,7 @@ def signup(request):
             login(request, new_user)
             return redirect('login')
 
-    return render(request, 'portfolio/signup.html', {
+    return render(request, 'portfolio/register.html', {
         's_form': form
     })
 
@@ -48,7 +48,7 @@ def login_user(request):
             login(request, user)
             return redirect('login')
 
-    return render(request, 'portfolio/signup.html', {
+    return render(request, 'portfolio/login.html', {
         'l_form': form
     })
 
@@ -61,6 +61,9 @@ def signout(request):
 @login_required(login_url='/login/')
 def home(request):
     return render(request, 'portfolio/home.html')
+
+def profile(request):
+    return render(request, 'portfolio/profile.html')
     
 
 class view_post(DetailView):
